@@ -26,5 +26,9 @@ This dataset is originally from <a href="https://archive.ics.uci.edu/ml/datasets
 17. Class 1.Positive, 2.Negative.
 
 ## Result
+The final model is a random forest model which trained with ADASYN technique. It returned a recall score of 96.5 % on the test set. 
 
 ## Recommendation
+* We could implement ensemble learning, such as by using voting classifier or stacking classifier.
+* Randomized Search could be used to tune the hyperparameters to see if the hyperparameter combination is the same.
+* If it is possible, we could increase the size of dataset by collecting more data. 

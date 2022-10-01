@@ -5,11 +5,12 @@ Inadequate insulin production or inresponsiveness of body cells to insulin may c
 ## Objective
 To build an efficient model that can help the patients to detect if they have diabetes.
 
-## Dataset Description
+## Dataset Source
 This dataset is originally from <a href="https://archive.ics.uci.edu/ml/datasets/Early+stage+diabetes+risk+prediction+dataset.#">UCI Machine Learning Repository</a>. It contains the sign and symptpom data of newly diabetic or would be diabetic patient.
 
 ## Result
-The final model is a random forest model which trained with ADASYN technique. It returned a recall score of 96.5 % on the test set. 
+1. `Pipeline`
+2. The final model is a random forest model which trained with ADASYN technique. It returned a recall score of 96.5 % on the test set. 
 
 ## Recommendation
 * Implement ensemble learning, such as by using voting classifier or stacking classifier.

@@ -10,7 +10,7 @@ This dataset is originally from <a href="https://archive.ics.uci.edu/ml/datasets
 
 ## Techniques Used 
 * There is imbalanced class in the dataset, where the majority class belongs to the “0” (we denoted it as negative) label and the minority class belongs to the “1” (we denoted it as positive) label. Hence, SMOTE based techniques (SMOTE, ADASYN, SMOTEENN, SMOTETomek) would be used to overcome imbalanced class issue before model training.
-* A function which involves the usage of pipeline was built in order to handle the inbalanced dataset, scale the data, and run the data with a set of classifiers one by one. Besides, the function also includes hyperparameter tuning process with 5-fold cross validation for each classifier so as to select the best model and its best parameters for each SMOTE based technique with the help of `PipelineHelper`.
+* A function which involves the usage of pipeline was built in order to handle the inbalanced dataset, scale the data, and run the data with a set of classifiers one by one. Besides, the function also includes hyperparameter tuning process with 5-fold cross validation for each classifier so as to select the best model and its best parameters with the help of <a href="https://pypi.org/project/pipelinehelper/">`PipelineHelper`</a>.
 * The final model was selected based the testing score returned by the model. 
 
 ## Result
@@ -18,5 +18,5 @@ The final model is a random forest model which trained which includes the usage 
 
 ## Recommendation
 * Implement ensemble learning, such as by using voting classifier or stacking classifier.
-* Randomized Search could be used to tune the hyperparameters to see if the hyperparameter combination is the same.
+* Randomized search could be used to tune the hyperparameters to see if the hyperparameter combination is the same.
 * If it is possible, we could increase the size of dataset by collecting more data to train the model. 

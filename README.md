@@ -9,7 +9,9 @@ To build an efficient model that can help the patients to detect if they have di
 This dataset is originally from <a href="https://archive.ics.uci.edu/ml/datasets/Early+stage+diabetes+risk+prediction+dataset.#">UCI Machine Learning Repository</a>. It contains the sign and symptpom data of newly diabetic or would be diabetic patient.
 
 ## Techniques Used 
-There is imbalanced class in the dataset, where the majority class belongs to the “0” (we denoted it as negative) label and the minority class belongs to the “1” (we denoted it as positive) label. Hence, SMOTE based techniques (SMOTE, ADASYN, SMOTEENN, SMOTETomek) would be used to overcome imbalanced class issue before model training.
+* There is imbalanced class in the dataset, where the majority class belongs to the “0” (we denoted it as negative) label and the minority class belongs to the “1” (we denoted it as positive) label. Hence, SMOTE based techniques (SMOTE, ADASYN, SMOTEENN, SMOTETomek) would be used to overcome imbalanced class issue before model training.
+* A function which involves the usage of pipeline was built in order to handle the inbalanced dataset, scale the data, and run the data with a set of classifiers one by one. Besides, the function also includes hyperparameter tuning process with 5-fold cross validation for each classifier so as to select the best model and its best parameters for each SMOTE based technique with the help of `PipelineHelper`.
+* The final model was selected based the testing score returned by the model. 
 
 ## Result
 The final model is a random forest model which trained which includes the usage of ADASYN technique. The final model returned a recall score of 96.5 % on the test set. 

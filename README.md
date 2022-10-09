@@ -1,6 +1,6 @@
 # Early-Diabetes-Detection-Using-Symptoms
 ## Problem Statement
-Inadequate insulin production or inresponsiveness of body cells to insulin may cause an increase in blood glucose in the body of a person and causing him/ her to suffer from diabetes. Diabetes could cause many other complications, such as loss of vision, kidney infection, and heart problems. Hence, early detection of diabetes can help the patients to keep their sugar levels under control by taking healthy diet with required drugs.
+Inadequate insulin production or inresponsiveness of body cells to insulin may cause an increase in blood glucose in the body of a person and causing diabetes. Diabetes could cause many other complications, such as loss of vision, kidney infection, and heart problems. Hence, early detection of diabetes can help the patients to keep their sugar levels under control by taking healthy diet with required drugs.
 
 ## Objective
 To build an efficient model that can help the patients to detect if they have diabetes.
@@ -20,3 +20,6 @@ The final model is a random forest model which trained which includes the usage 
 * Implement ensemble learning, such as by using voting classifier or stacking classifier.
 * Randomized search could be used to tune the hyperparameters to see if the hyperparameter combination is the same.
 * If it is possible, we could increase the size of dataset by collecting more data to train the model. 
+
+## Disclaimer
+This application is for learning purpose only. The prediction result may not meet your expectation.

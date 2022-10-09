@@ -1,0 +1,94 @@
+.topic{
+    text-align:center;
+    text-transform:uppercase;
+    color:#fff;
+    border-bottom: 10px solid #FFFF99;
+}
+
+body {
+    margin: 0;
+    background-color: #1b1b32;
+    color: #f5f6f7;
+    font-family: Tahoma;
+    font-size: 16px;
+}
+
+.gallery{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 15px 10px;
+}
+a{
+    color: #f5f6f7;
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 350px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+h3 {
+    margin: 1em auto;
+    text-align: center;
+}
+
+fieldset {
+	border:3px solid #999;
+	border-radius:5px;
+	box-shadow:0 0 10px #999;
+}
+
+form {
+    margin: 0 auto;
+    padding-top: 20px;
+    max-width: 1500px;
+    min-width: 300px;
+    width:80%;
+}
+
+input[type="number"], select {
+    margin: 10px 0 0 0;
+    width: 100%;
+    min-height: 2em;
+}
+
+.parent{
+    display: table;
+    text-align: center;
+    width: 200px;
+    margin: auto;
+    padding: 2%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.child{
+   display: table-cell;
+   vertical-align: bottom;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  text-align: justify;
+  text-justify: inter-word;
+  max-width: 1000px;
+  min-width: 300px;
+  width:80%;
+}
+
+

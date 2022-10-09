@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Early Diabetes Detection</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css" />
+</head>
+<body>
+    <header class="topic">
+        <h1>early diabetes detection</h1>
+    </header>
+    <main>
+        <section>
+            <h3>Let's check whether you would have <a href="https://www.diabetes.co.uk/" target="_blank">diabetes</a>. &#128522</h3>
+            <div class="gallery">
+                <img src="https://images.pexels.com/photos/6942015/pexels-photo-6942015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Blood Sugar Meter and Medication on the Blue Background" loading="lazy"/>
+                <img src="https://images.pexels.com/photos/5469158/pexels-photo-5469158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Woman in White Shirt Eating Candies" loading="lazy"/>
+                <img src="https://images.pexels.com/photos/5469027/pexels-photo-5469027.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A Glucometer Surrounded by Colorful Candies" loading="lazy"/>
+            </div>
+        </section>
+        <section>
+            <form action="/result" method="POST">
+                <fieldset>
+                    <legend> Please answer the following questions. </legend>
+                    <!--input 1-->
+                    <p>Q1. What is your age? </p>
+                    <input type="number" placeholder="Enter your age" name="num__age" required>
+                    <!--input 2-->
+                    <p>Q2. Select your gender.</p>
+                        <input type="radio" id="Female" name="cat__gender_Male" value="Female">
+                            <label for="Female">Female</label>
+                        <input type="radio" id="Male" name="cat__gender_Male" value="Male">
+                            <label for="Male">Male</label>
+                    <!--input 3-->
+                    <p>Q3. Do you have <a href="https://www.diabetes.co.uk/symptoms/polyuria.html#:~:text=Polyuria%20is%20a%20condition%20where,about%201%20to%202%20litres." target="_blank">polyuria</a>?</p>
+                        <select required name="cat__polyuria_Yes">
+                            <option value="" disabled selected>-- select an option --</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    <!--input 4-->
+                    <p>Q4. Do you have <a href="https://my.clevelandclinic.org/health/symptoms/24050-polydipsia#:~:text=Polydipsia%20is%20the%20medical%20definition,may%20go%20along%20with%20it." target="_blank">polydipsia (excessive thirst)</a>?</p>
+                        <select required name="cat__polydipsia_Yes">
+                            <option value="" disabled selected>-- select an option --</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    <!--input 5-->
+                    <p>Q5. Did you suffer from sudden weight loss?</p>
+                        <select required name="cat__sudden_weight_loss_Yes">
+                            <option value="" disabled selected>-- select an option --</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    <!--input 6-->
+                    <p>Q6. Did you feel weak recently?</p>
+                        <select required name="cat__weakness_Yes">
+                            <option value="" disabled selected>-- select an option --</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    <!--input 7-->
+                    <p>Q7. Do you have <a href="https://kidshealth.org/en/parents/polyphagia.html" target="_blank">polyphagia</a>?</p>
+                        <select required name="cat__polyphagia_Yes">
+                            <option value="" disabled selected>-- select an option --</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    <!--input 8-->
+                    <p>Q8. Do you have genital thrush?</p>
+                        <select required name="cat__genital_thrush_Yes">
+                            <option value="" disabled selected>-- select an option --</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    <p>Q9. Did your vision become blur?</p>
+                        <select required name="cat__visual_blurring_Yes">
+                            <option value="" disabled selected>-- select an option --</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    <p>Q10. Do you have itching?</p>
+                        <select required name="cat__itching_Yes">
+                            <option value="" disabled selected>-- select an option --</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    <p>Q11. Do you have irritability?</p>
+                        <select required name="cat__irritability_Yes">
+                            <option value="" disabled selected>-- select an option --</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    <p>Q12. Are you suffering from delayed healing?</p>
+                        <select required name="cat__delayed_healing_Yes">
+                            <option value="" disabled selected>-- select an option --</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    <p>Q13. Are you partial paresis?</p>
+                        <select required name="cat__partial_paresis_Yes">
+                            <option value="" disabled selected>-- select an option --</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    <p>Q14. Are you suffering from muscle stiffness?</p>
+                        <select required name="cat__muscle_stiffness_Yes">
+                            <option value="" disabled selected>-- select an option --</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    <p>Q15. Do you have <a href="https://www.webmd.com/skin-problems-and-treatments/guide/alopecia-areata" target="_blank">alopecia (hair loss)</a>?</p>
+                        <select required name="cat__alopecia_Yes">
+                            <option value="" disabled selected>-- select an option --</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    <div class="parent">
+                        <button type="submit" class="child" value="Submit">Submit</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <h3>Thank you so much for your participation. &#128588</h3>
+    </footer>
+</body>
+</html>

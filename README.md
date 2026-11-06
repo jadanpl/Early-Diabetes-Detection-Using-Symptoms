@@ -8,6 +8,11 @@ To build an efficient model that can help the patients to detect if they have di
 ## Dataset Source 📅
 This dataset is originally from <a href="https://archive.ics.uci.edu/ml/datasets/Early+stage+diabetes+risk+prediction+dataset.#" target="_blank">UCI Machine Learning Repository</a>. It contains the sign and symptpom data of newly diabetic or would be diabetic patient.
 
+## Key Exploratory Findings💡 
+* Chi-Square ($\chi^2$) tests of independence revealed that 12 out of 15 categorical symptoms have a statistically significant relationship with diabetes ($p < 0.05$). Polyuria ($\chi^2 = 227.87$) and Polydipsia ($\chi^2 = 216.17$) are the strongest individual predictors.  
+* Non-diabetic patients predominantly report 0–2 symptoms. In contrast, diabetic patients exhibit a high symptom load, peaking sharply between 7 and 9 symptoms.
+* Patients at age extremes ($\le 20$ and $\ge 75$) consistently presented with sudden weight loss without obesity.
+
 ## Techniques Used 🕵️‍♀️
 * There is imbalanced class in the dataset, where the majority class belongs to the “0” (we denoted it as negative) label and the minority class belongs to the “1” (we denoted it as positive) label. Hence, SMOTE based techniques (SMOTE, ADASYN, SMOTEENN, SMOTETomek) would be used to overcome imbalanced class issue before model training.
 * A pipeline was built to preprocess data (scaling & one-hot encoding), as well as to handle the inbalanced dataset. 

@@ -14,20 +14,23 @@ This dataset is originally from <a href="https://archive.ics.uci.edu/ml/datasets
 * Patients at age extremes ($\le 20$ and $\ge 75$) consistently presented with sudden weight loss without obesity.
 
 ## Techniques Used 🕵️‍♀️
-* There is imbalanced class in the dataset, where the majority class belongs to the “0” (we denoted it as negative) label and the minority class belongs to the “1” (we denoted it as positive) label. Hence, SMOTE based techniques (SMOTE, ADASYN, SMOTEENN, SMOTETomek) would be used to overcome imbalanced class issue before model training.
-* A pipeline was built to preprocess data (scaling & one-hot encoding), as well as to handle the inbalanced dataset. 
-* To select the best model and its best parameters for each of the SMOTE based techniques, a function was built and it includes hyperparameter tuning process with 10-fold cross validation and the usage of <a href="https://pypi.org/project/pipelinehelper/" target="_blank">`PipelineHelper`</a>.
-* The function was run with one SMOTE based technique being selected for each time. The final model was selected based the difference between cross validation score and the testing score returned. 
+* Preprocessing (ColumnTransformer): MinMaxScaler applied to continuous age to prevent scaling distortion in distance-based estimators (KNN/SVM), while binary categorical variables are encoded via OneHotEncoder(drop='if_binary').
+* Leak-Free Cross-Validation: Standard 5-fold Stratified CV evaluates Macro Recall, F1-Score, and ROC-AUC. Feature transformations and SMOTE sampling are fit strictly inside training folds using imblearn.pipeline.Pipeline.
+* Hyperparameter Tuning: RandomizedSearchCV optimizes hyperparameters across selected candidate models using refit='recall_macro'.
 
 ## Result 🔎
-The final model is a support vector machine (SVM) with the SMOTE-ENN technique. The final model returned a recall score of 95.75% for the testing data. This score is slightly higher than the recall score that the SVM returned before the usage of the SMOTE-ENN technique.  Besides, I also created a flask application with a proper frontend and UI that can be run on the local computer (as shown in the video below). <br><br>
+1. Baseline Model Comparison (Un-sampled)Random Forest achieved the top baseline performance (96.96% Macro Recall, 99.60% ROC-AUC).Excluded Models: Gaussian Naive Bayes (lowest recall, violated independence assumption), AdaBoost (high fold variance), and Decision Tree (redundant relative to ensemble methods).
+2. Post-Tuning Comparison (SMOTE + Hyperparameter Tuning)ModelRecall (Macro) MeanRecall (Macro) StdF1 (Macro) MeanROC-AUC MeanXGBoost97.08%2.48%97.00%99.03%Random Forest96.96%2.45%96.96%99.58%KNN96.75%1.17%96.00%98.71%SVM95.88%1.89%95.92%99.10%Logistic Regression93.71%1.52%93.05%97.38%
+3. Final Model Selection RationaleTop Sensitivity Model — XGBoost: Recommended when the primary objective is maximizing sensitivity (97.08% Recall) to minimize false negatives in medical screening.Top Clinical Contender — KNN: Recommended for clinical reliability due to high recall (96.75%) paired with superior fold stability (1.17% Std Dev).
+
+Besides, I also created a flask application with a proper frontend and UI that can be run on the local computer (as shown in the video below). <br><br>
 
 https://user-images.githubusercontent.com/57357735/194742448-52412c5a-66c2-485b-a25e-9adb154a0013.mp4
 
 ## Recommendation 📥
-* Implement ensemble learning, such as by using voting classifier or stacking classifier.
-* Randomized search could be used to tune the hyperparameters to see if the hyperparameter combination is the same.
-* If it is possible, we could increase the size of dataset by collecting more data to train the model. 
+* Explore hybrid resampling techniques such as SMOTE-ENN or SMOTE-Tomek to clean noisy class boundaries.
+* Implement soft-voting ensemble classifiers combining XGBoost, Random Forest, and KNN.
+* Collect a broader demographic sample to evaluate model stability against real-world covariate shifts.
 
 ## Disclaimer 😊
 This application is for learning purpose only. The prediction result may not meet your expectation. It is always good to consult a doctor if you are not sure if you have diabetes or not.  

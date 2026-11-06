@@ -19,9 +19,8 @@ This dataset is originally from <a href="https://archive.ics.uci.edu/ml/datasets
 * Hyperparameter Tuning: RandomizedSearchCV optimizes hyperparameters across selected candidate models using refit='recall_macro'.
 
 ## Result 🔎
-1. Baseline Model Comparison (Un-sampled)Random Forest achieved the top baseline performance (96.96% Macro Recall, 99.60% ROC-AUC).Excluded Models: Gaussian Naive Bayes (lowest recall, violated independence assumption), AdaBoost (high fold variance), and Decision Tree (redundant relative to ensemble methods).
-2. Post-Tuning Comparison (SMOTE + Hyperparameter Tuning)ModelRecall (Macro) MeanRecall (Macro) StdF1 (Macro) MeanROC-AUC MeanXGBoost97.08%2.48%97.00%99.03%Random Forest96.96%2.45%96.96%99.58%KNN96.75%1.17%96.00%98.71%SVM95.88%1.89%95.92%99.10%Logistic Regression93.71%1.52%93.05%97.38%
-3. Final Model Selection RationaleTop Sensitivity Model — XGBoost: Recommended when the primary objective is maximizing sensitivity (97.08% Recall) to minimize false negatives in medical screening.Top Clinical Contender — KNN: Recommended for clinical reliability due to high recall (96.75%) paired with superior fold stability (1.17% Std Dev).
+1. Baseline Model Comparison (Un-sampled)Random Forest achieved the top baseline performance (96.96% Macro Recall, 99.60% ROC-AUC). Excluded Models: Gaussian Naive Bayes (lowest recall, violated independence assumption), AdaBoost (high fold variance), and Decision Tree (redundant relative to ensemble methods).
+2. After Tuning Comparison (SMOTE + Hyperparameter Tuning), KNN is selected as final model due to  high recall (96.75%) paired with superior fold stability (1.17% Std Dev), which is recommended for clinical reliability.
 
 Besides, I also created a flask application with a proper frontend and UI that can be run on the local computer (as shown in the video below). <br><br>
 

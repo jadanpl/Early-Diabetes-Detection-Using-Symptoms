@@ -1,8 +1,10 @@
+# import joblib
 import pickle
 import pandas as pd
 from flask import Flask, render_template, request
 
-model = pickle.load(open('finalized_svm_model_diabetes.pkl', 'rb'))
+model = pickle.load(open('finalized_knn_diabetes.pkl', 'rb'))
+# model = joblib.load('finalized_knn_diabetes.joblib')
 app = Flask(__name__)
 
 @app.route("/")
@@ -16,7 +18,7 @@ def submit():
     global weakness, polyphagia, genital_thrush
     global visual_blurring, itching, irritability
     global delayed_healing, partial_paresis
-    global muscle_stiffness, alopecia
+    global muscle_stiffness, alopecia,obesity
 
     if request.method == "POST":
         age = int(request.form["num__age"])  # variable 1
@@ -34,6 +36,7 @@ def submit():
         partial_paresis = request.form["cat__partial_paresis_Yes"]  # variable 13
         muscle_stiffness = request.form["cat__muscle_stiffness_Yes"]  # variable 14
         alopecia = request.form["cat__alopecia_Yes"]  # variable 15
+        obesity=request.form["cat__obesity_Yes"]  # variable 15
 
     # .py to HTML
     # Get prediction results
@@ -41,7 +44,7 @@ def submit():
                                'sudden_weight_loss':[sudden_weight_loss], 'weakness': [weakness], 'polyphagia': [polyphagia],
                                'genital_thrush': [genital_thrush], 'visual_blurring': [visual_blurring], 'itching': [itching],
                                'irritability': [irritability], 'delayed_healing': [delayed_healing], 'partial_paresis': [partial_paresis],
-                               'muscle_stiffness': [muscle_stiffness],'alopecia': [alopecia]})
+                               'muscle_stiffness': [muscle_stiffness],'alopecia': [alopecia],'obesity': [obesity]})
     prediction = model.predict(user_input)
     if prediction == 1:
         return render_template('result.html', prediction="have diabetes. Please consult to a doctor.")

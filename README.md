@@ -24,6 +24,7 @@ This dataset is originally from <a href="https://archive.ics.uci.edu/ml/datasets
 
 ## Model Deployment 🚀
 Besides, I also created a flask application (along HTML and CSS too) with a proper frontend and UI that can be run on the local computer. This is because not every user is a coder, so it is unrealistic to expect the end-users to know how to run the Jupyter Notebook and get output. 
+
 First, we need to use Pickle to serialize the trained model and save the serialized format to a file. After you run the codes, you could find a pickle file called ‘finalized_knn_diabetes.pkl’ in your directory. We would use it in the main.py (the application file to make a prediction based on user inputs and sends the result back to the user).
 Then, we need to create a folder called ‘templates’ to store the home.html file (basically a form that enables the users to provide their inputs) and the result.html file (a file that shows the result to the users).
 

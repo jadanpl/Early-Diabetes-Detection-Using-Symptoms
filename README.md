@@ -44,6 +44,7 @@ https://user-images.githubusercontent.com/57357735/194742448-52412c5a-66c2-485b-
 * Explore hybrid resampling techniques such as SMOTE-ENN or SMOTE-Tomek to clean noisy class boundaries.
 * Implement soft-voting ensemble classifiers combining XGBoost, Random Forest, and KNN.
 * Collect a broader demographic sample to evaluate model stability against real-world covariate shifts.
+* There are always ever-changing political, economic, social, and technological (PEST) factors. Models do not always run in static environments, and these PEST factors cause model drift (decline in model performance) as the model has no predictive power for interpreting unfamiliar data. Regardless of how the model is performing, it is needed to understand how frequently data and variables in your model change to retrain your model at a regular gap. 
 
 ## Disclaimer 😊
 This application is for learning purpose only. The prediction result may not meet your expectation. It is always good to consult a doctor if you are not sure if you have diabetes or not.  
